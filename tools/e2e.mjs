@@ -761,10 +761,11 @@ test("beginUpgrade actually opens a checkout when configured", async ({
   }
   assert(response.started === true, "Upgrade reported failure");
   // Confirm a real checkout tab appeared, not just a truthy return value.
-  await page.waitForFunction(() => document.querySelector(".edit-toolbar .status")?.textContent === "Applied.", null, { timeout: 15_000 });
-  const checkout = context
-    .pages()
-    .find((p) => p.url().includes("extensionpay.com"));
+  let checkout;
+  for (const deadline = Date.now() + 15_000; !checkout && Date.now() < deadline; ) {
+    checkout = context.pages().find((p) => p.url().includes("extensionpay.com"));
+    if (!checkout) await page.waitForTimeout(250);
+  }
   assert(checkout !== undefined, "no checkout page opened");
   assert(
     checkout.url().includes("/choose-plan"),
