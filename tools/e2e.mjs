@@ -306,6 +306,42 @@ test("recording across two page loads makes the right steps with screenshots", a
   assert(ids.size === guide.steps.length, "steps share a screenshot record");
 });
 
+test("starting from Stepsmith's own page screenshots the recorded tab, not Stepsmith", async ({ page, context, port }) => {
+  // The real flow: the user clicks Start on Stepsmith's page, so that page
+  // is in front when recording begins. The opening screenshot must still be
+  // of the recorded site (page1 is plain white at the top-left).
+  const site = await openSite(context, port, "/page1.html");
+  const target = site.url();
+  await page.bringToFront();
+  const started = await page.evaluate(async (url) => {
+    const tab = (await chrome.tabs.query({})).find((t) => t.url === url);
+    return chrome.runtime.sendMessage({ type: "startRecording", tabId: tab.id, windowId: tab.windowId });
+  }, target);
+  assert(started.ok === true, `could not start recording: ${JSON.stringify(started)}`);
+  await waitForSteps(page, 1);
+  const stopped = await stopRecording(page);
+  const guide = await readGuide(page, stopped.guideId);
+  const first = guide.steps[0];
+  assert(first.imageId !== null, "the opening step has no screenshot");
+  const corner = await page.evaluate(async (imageId) => {
+    const record = await new Promise((resolve, reject) => {
+      const open = indexedDB.open("stepsmith");
+      open.onerror = () => reject(open.error);
+      open.onsuccess = () => {
+        const req = open.result.transaction("images").objectStore("images").get(imageId);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      };
+    });
+    const bitmap = await createImageBitmap(record.blob);
+    const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(bitmap, 0, 0);
+    return Array.from(ctx.getImageData(5, bitmap.height - 5, 1, 1).data.slice(0, 3));
+  }, first.imageId);
+  assert(corner.every((c) => c >= 250), `opening screenshot is not the recorded page (corner pixel ${corner})`);
+});
+
 test("typed values and passwords are never stored", async (ctx) => {
   const { guide } = await recordCheckoutFlow(ctx);
   const everything = await ctx.page.evaluate(async () => {

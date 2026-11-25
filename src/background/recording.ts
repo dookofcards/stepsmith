@@ -54,6 +54,29 @@ async function capture(windowId: number): Promise<Blob | null> {
   }
 }
 
+/**
+ * captureVisibleTab shoots whatever tab is active in the window. Recording
+ * starts from Stepsmith's own page, so bring the recorded tab to the front
+ * and wait until Chrome reports it active before the opening screenshot;
+ * otherwise that step got no image or a picture of Stepsmith itself.
+ */
+async function bringToFront(tabId: number, windowId: number): Promise<boolean> {
+  try {
+    await chrome.tabs.update(tabId, { active: true });
+  } catch {
+    return false;
+  }
+  for (let i = 0; i < 40; i++) {
+    const [active] = await chrome.tabs.query({ active: true, windowId });
+    if (active?.id === tabId) {
+      await new Promise((r) => setTimeout(r, 150)); // let it paint
+      return true;
+    }
+    await new Promise((r) => setTimeout(r, 50));
+  }
+  return false;
+}
+
 async function inject(tabId: number): Promise<boolean> {
   try {
     await chrome.scripting.executeScript({
@@ -164,7 +187,15 @@ export function startRecording(
     const blurs = (await hasFeature("autoBlur"))
       ? [...collected.blurs, ...collected.piiBlurs]
       : collected.blurs;
-    const shot = await capture(tab.windowId || windowId);
+    const shotWindow = tab.windowId || windowId;
+    // Nothing is navigating yet, so a failed capture here is transient (the
+    // tab still painting, or the rate limit): try a few times.
+    let shot: Blob | null = null;
+    if (await bringToFront(tabId, shotWindow)) {
+      for (let attempt = 0; attempt < 3 && shot === null; attempt++) {
+        shot = await capture(shotWindow);
+      }
+    }
     const saved = await storeSteps(
       guide,
       shot,
