@@ -1,6 +1,6 @@
 // The build script injects these into manifest.json, so a rename happens
 // here and nowhere else.
-export const EXTENSION_NAME = "Stepsmith";
+export const EXTENSION_NAME = "Stepsmith: Step-by-Step Guide Maker";
 export const EXTENSION_DESCRIPTION =
   "Record the steps you take on a website and turn them into a step-by-step guide with screenshots, kept on your device.";
 

@@ -5,7 +5,7 @@ Paste each item into the Developer Dashboard. The store title is the manifest
 edit listing text, screenshots or the privacy form.
 
 ## Name (≤75)
-`Stepsmith`
+`Stepsmith: Step-by-Step Guide Maker`
 
 ## Short description (≤132, equals the manifest description)
 `Record the steps you take on a website and turn them into a step-by-step guide with screenshots, kept on your device.`
