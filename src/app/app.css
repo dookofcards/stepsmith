@@ -1,0 +1,67 @@
+:root {
+  --accent: #4f46e5;
+  --accent-dark: #3730a3;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --bg: #f5f6fb;
+  --danger: #b91c1c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+.top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 28px; background: #fff; border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 5;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; color: var(--ink); text-decoration: none; }
+nav a { margin-left: 18px; color: var(--muted); text-decoration: none; font-weight: 600; }
+.back-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; }
+.back-link:hover { color: var(--accent, #4f46e5); }
+nav a.current { color: var(--accent); }
+main { max-width: 940px; margin: 0 auto; padding: 28px 20px 80px; }
+h1 { font-size: 26px; margin: 0 0 6px; }
+h2 { font-size: 18px; margin: 28px 0 10px; }
+.lede { color: var(--muted); margin: 0 0 22px; }
+button, .btn {
+  font: inherit; font-weight: 600; cursor: pointer; border-radius: 8px;
+  border: 1px solid #c7cbe0; background: #fff; color: var(--ink); padding: 7px 14px;
+}
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+button.primary:hover:not(:disabled) { background: var(--accent-dark); }
+button.danger { color: var(--danger); }
+button.small { padding: 3px 9px; font-size: 13px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.spacer { flex: 1; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; }
+.guide-card { display: flex; align-items: center; gap: 14px; }
+.guide-card .title { font-weight: 700; font-size: 16px; color: var(--ink); text-decoration: none; }
+.guide-card .meta { color: var(--muted); font-size: 13px; }
+.empty ol { margin: 8px 0 0 18px; padding: 0; }
+.empty li { margin: 6px 0; }
+.note { background: #eef0ff; border: 1px solid #d5d9ff; border-radius: 8px; padding: 9px 12px; font-size: 14px; }
+.warn { background: #fef2f2; border-color: #fecaca; }
+.pro-badge { display: inline-block; background: #fef3c7; color: #92400e; border-radius: 5px; font-size: 11px; font-weight: 800; padding: 1px 6px; vertical-align: middle; letter-spacing: .5px; }
+.title-input { font: inherit; font-size: 24px; font-weight: 800; border: 1px solid transparent; border-radius: 8px; padding: 4px 8px; width: 100%; background: transparent; }
+.title-input:hover, .title-input:focus { border-color: #c7cbe0; background: #fff; }
+.step { display: grid; grid-template-columns: 38px 1fr; gap: 12px; }
+.step .num { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.caption-input { font: inherit; font-weight: 600; width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; }
+.shot { scroll-margin-top: 80px; position: relative; margin-top: 10px; display: inline-block; max-width: 100%; line-height: 0; }
+.shot img { max-width: 100%; border: 1px solid var(--line); border-radius: 8px; display: block; }
+.shot .overlay { position: absolute; inset: 0; cursor: crosshair; touch-action: none; }
+.selection { position: absolute; border: 2px dashed #dc2626; background: rgba(220, 38, 38, .12); pointer-events: none; }
+.toolbar { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; align-items: center; }
+.toolbar button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.field { display: block; margin: 12px 0; }
+.field > span { display: block; font-weight: 600; margin-bottom: 4px; }
+.field input[type="text"] { width: 100%; max-width: 420px; padding: 6px 8px; border: 1px solid #c7cbe0; border-radius: 8px; font: inherit; }
+.status { min-height: 22px; color: var(--muted); font-size: 14px; margin-left: 6px; }
+ul.pro-list { margin: 6px 0 12px 20px; padding: 0; }

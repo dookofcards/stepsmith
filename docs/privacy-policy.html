@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stepsmith Privacy Policy</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
+      h1 { font-size: 26px; }
+      h2 { font-size: 18px; margin-top: 28px; }
+      .updated { opacity: 0.6; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <h1>Stepsmith Privacy Policy</h1>
+    <p class="updated">Effective date: November 24, 2026</p>
+
+    <h2>The short version</h2>
+    <p>
+      Stepsmith runs entirely on your device. The guides and screenshots you
+      record are stored in your browser and are <strong>never sent
+      anywhere</strong>. It has no analytics, no telemetry, no ads and no
+      accounts. We operate no servers.
+    </p>
+    <p>
+      The free version makes <strong>no network requests</strong>. If you
+      choose to buy Stepsmith Pro, the purchase is handled by
+      <a href="https://extensionpay.com">ExtensionPay</a> (which uses Stripe).
+      That is the only situation in which Stepsmith contacts a server. It
+      happens only after you click the unlock button, and it never sends your
+      guides, screenshots, captions or anything about your browsing.
+    </p>
+
+    <h2>What Stepsmith records, and only while you record</h2>
+    <p>
+      Recording starts when you click "Record this tab" and applies to that
+      one tab until you stop or close it. While recording, Stepsmith saves:
+    </p>
+    <ul>
+      <li>a screenshot of the visible part of the recorded tab for each step;</li>
+      <li>
+        the visible label of what you clicked (for example "Save") and the
+        name of a field you typed into (for example "Email") to write each
+        step's caption;
+      </li>
+      <li>the page title and website name, to name the guide and its first step.</li>
+    </ul>
+    <p>
+      Stepsmith <strong>never saves what you type</strong>. It only notes that
+      you typed in a field. It never reads the contents of password,
+      one-time-code or card-detail fields, and it blurs those fields in
+      screenshots automatically. Screenshots and labels do show whatever is
+      on the page, such as names or numbers, so review a guide before you
+      share it. Pro adds a redaction tool and automatic blurring of email
+      addresses and long numbers in text fields; to do that, a page script
+      checks whether a field's text looks like an email address or a long
+      number and reports only the position of the field, never its text.
+    </p>
+
+    <h2>Where it is stored</h2>
+    <p>
+      Guides, captions and screenshots are stored in your browser's local
+      database (IndexedDB) for the extension, on your device. Your Pro status
+      and branding choices (accent colour, footer text, logo) are stored in
+      the extension's local storage on your device. The state of a recording
+      in progress is kept in memory-only session storage and disappears when
+      the browser closes. Stepsmith does not use Chrome sync storage, so none
+      of this is synced to other devices by Stepsmith. You can delete every
+      guide and screenshot at any time with "Delete all my guides and
+      screenshots" in Settings, or by removing the extension.
+    </p>
+
+    <h2>What Stepsmith accesses, and why</h2>
+    <ul>
+      <li>
+        <strong>Storage:</strong> keeps your Pro status and branding on your
+        device, and the state of a recording in progress.
+      </li>
+      <li>
+        <strong>Scripting:</strong> injects the recorder into the tab you
+        are recording, and only into that tab.
+      </li>
+      <li>
+        <strong>Access to websites (optional):</strong> Stepsmith asks for
+        this once, with Chrome's own prompt, the first time you start a
+        recording. It is needed to keep recording after a click opens a new
+        page and to take the screenshots. It is used only on the tab you are
+        recording while you record. Nothing is transmitted. If you decline,
+        nothing is recorded.
+      </li>
+      <li>
+        <strong>extensionpay.com:</strong> a small script runs on
+        extensionpay.com pages only, so that the extension learns a purchase
+        completed.
+      </li>
+    </ul>
+
+    <h2>Buying Pro</h2>
+    <p>
+      Clicking the unlock button opens ExtensionPay's checkout in a new tab.
+      Your payment details and email address are entered on ExtensionPay's
+      and Stripe's pages, not in Stepsmith, and are governed by their
+      policies. After you have started a purchase, Stepsmith may check your
+      Pro status with ExtensionPay about once a week. This contains no
+      information about your guides or browsing. If you never click the
+      unlock button, Stepsmith never contacts ExtensionPay.
+    </p>
+
+    <h2>Children, changes and contact</h2>
+    <p>
+      Stepsmith does not knowingly collect information from anyone, including
+      children. If this policy changes, the effective date above will change
+      with it. Questions:
+      <a href="https://github.com/dookofcards/stepsmith/issues">github.com/dookofcards/stepsmith/issues</a>.
+    </p>
+  </body>
+</html>

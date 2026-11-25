@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stepsmith: step-by-step guides with screenshots, kept on your device</title>
+    <meta name="description" content="Stepsmith records the steps you take on a website and turns them into a step-by-step guide with screenshots. Guides stay on your device. The free version makes no network requests." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Stepsmith",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "description": "Record the steps you take on a website and turn them into a step-by-step guide with screenshots, kept on your device.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free, with an optional one-time Pro unlock" },
+        "author": { "@type": "Organization", "name": "Extension Tools" }
+      }
+    </script>
+    <style>
+      :root { color-scheme: light dark; --accent: #4f46e5; }
+      body { font-family: system-ui, sans-serif; line-height: 1.6; margin: 0; }
+      header { background: linear-gradient(135deg, #4f46e5, #1e1b4b); color: #fff; padding: 56px 20px; text-align: center; }
+      header img { width: 96px; height: 96px; }
+      header h1 { font-size: 40px; margin: 12px 0 6px; }
+      header p { max-width: 640px; margin: 0 auto; font-size: 19px; opacity: 0.95; }
+      main { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+      h2 { font-size: 24px; margin-top: 40px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+      .card { border: 1px solid rgba(127, 127, 127, 0.35); border-radius: 12px; padding: 4px 20px 14px; }
+      .shots img { max-width: 100%; border-radius: 10px; border: 1px solid rgba(127, 127, 127, 0.35); margin: 8px 0; }
+      a { color: var(--accent); }
+      footer { text-align: center; opacity: 0.7; font-size: 14px; padding-bottom: 40px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="icon128.png" alt="" />
+      <h1>Stepsmith</h1>
+      <p>
+        Click through a task once. Stepsmith turns it into a step-by-step
+        guide with screenshots, and keeps it on your device.
+      </p>
+    </header>
+    <main>
+      <h2>How it works</h2>
+      <ol>
+        <li>Open the website you want to document and click <strong>Record this tab</strong>.</li>
+        <li>Do the task as you normally would. Each click becomes a step with a screenshot, the clicked spot highlighted, and a caption such as "Click <strong>Save</strong>".</li>
+        <li>Press <strong>Stop</strong>, tidy the captions, reorder or delete steps, and export.</li>
+      </ol>
+
+      <h2>Why Stepsmith</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Your guides stay yours</h3>
+          <p>Screenshots and captions are stored in your browser. The free version makes no network requests, so nothing is uploaded and there is no account.</p>
+        </div>
+        <div class="card">
+          <h3>Safe by default</h3>
+          <p>What you type is never saved, only the name of the field. Password, one-time-code and card fields are never read and are blurred in screenshots.</p>
+        </div>
+        <div class="card">
+          <h3>Pay once, if at all</h3>
+          <p>Recording, editing, HTML export and Markdown copy are free. Pro is a one-time unlock, not a monthly seat.</p>
+        </div>
+        <div class="card">
+          <h3>Narrow access</h3>
+          <p>Stepsmith asks for access to websites once, with Chrome's own prompt, the first time you record, and only touches the tab you record.</p>
+        </div>
+      </div>
+
+      <h2>Free and Pro</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Free</h3>
+          <ul>
+            <li>Record across page loads in a tab</li>
+            <li>Screenshot per step, with the clicked spot highlighted</li>
+            <li>Automatic captions, editable</li>
+            <li>Edit, reorder, delete, add text steps</li>
+            <li>Unlimited guides, stored on your device</li>
+            <li>Export a single self-contained HTML file</li>
+            <li>Copy the steps as Markdown</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pro (one-time)</h3>
+          <ul>
+            <li>PDF export, made on your device</li>
+            <li>Redact and annotate: blur, black out, box, arrow, text, crop</li>
+            <li>Automatic blurring of emails and long numbers</li>
+            <li>Your logo, colour and footer on exports</li>
+            <li>Markdown export as a .zip with image files</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Screenshots</h2>
+      <div class="shots">
+        <img src="screenshot-2-editor.png" alt="The guide editor showing recorded steps with screenshots" />
+        <img src="screenshot-3-redact.png" alt="Redact and annotate tools on a step's screenshot" />
+      </div>
+
+      <h2>FAQ</h2>
+      <h3>Does Stepsmith upload my screenshots?</h3>
+      <p>No. Guides and screenshots live in your browser's local database. The free version makes no network requests. Buying Pro contacts ExtensionPay, and nothing else ever does.</p>
+      <h3>Why does it ask for access to all websites?</h3>
+      <p>To keep recording after a click opens a new page, and to take the screenshots, Chrome needs the permission for the sites you record. Stepsmith asks once, only when you first start recording, and only touches the tab you are recording while you record. If you say no, nothing is recorded.</p>
+      <h3>Does it save what I type?</h3>
+      <p>No. A step like "Type in Email" records only the field's name. Password, one-time-code and card fields are never read and are blurred in screenshots.</p>
+      <h3>What can't it record?</h3>
+      <p>Browser pages (chrome://), the Chrome Web Store and the built-in PDF viewer, and actions inside the browser's own menus. Clicks inside embedded frames are not captured yet.</p>
+      <h3>Why is a step missing its screenshot?</h3>
+      <p>If a click navigates away faster than the screenshot can be read back, Chrome refuses the capture. The step is still recorded; you can add a text note or record that part again.</p>
+      <p><a href="privacy-policy.html">Privacy policy</a> ·
+        <a href="https://github.com/dookofcards/stepsmith/issues">Support</a></p>
+    </main>
+    <footer>Stepsmith by Extension Tools (dookofcards). MIT licensed.</footer>
+  </body>
+</html>

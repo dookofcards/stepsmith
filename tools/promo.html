@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stepsmith — store promo tiles</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #eee;
+        margin: 0;
+        padding: 32px;
+      }
+      .howto {
+        max-width: 720px;
+        margin-bottom: 28px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 16px 20px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .tile {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #4f46e5, #1e1b4b);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        margin-bottom: 32px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+      }
+      .tile::after {
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: -80px;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      /* Small promo tile: required, 440x280 */
+      #tile-small {
+        width: 440px;
+        height: 280px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+        text-align: center;
+      }
+      #tile-small img {
+        width: 96px;
+        height: 96px;
+      }
+      #tile-small .name {
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      #tile-small .tag {
+        font-size: 16px;
+        opacity: 0.95;
+        margin: 0 28px;
+      }
+      /* Marquee: optional, 1400x560 */
+      #tile-marquee {
+        width: 1400px;
+        height: 560px;
+        padding: 0 90px;
+        box-sizing: border-box;
+      }
+      #tile-marquee img {
+        width: 220px;
+        height: 220px;
+        flex-shrink: 0;
+      }
+      #tile-marquee .name {
+        font-size: 84px;
+        font-weight: 800;
+        letter-spacing: -2px;
+        line-height: 1.1;
+      }
+      #tile-marquee .tag {
+        font-size: 32px;
+        opacity: 0.95;
+        margin-top: 12px;
+        max-width: 820px;
+      }
+      #tile-marquee .sub {
+        font-size: 22px;
+        opacity: 0.8;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="tile" id="tile-small">
+      <img src="../src/icons/icon128.png" alt="" />
+      <div class="name">Stepsmith</div>
+      <p class="tag">Step-by-step guides with screenshots, kept on your device</p>
+    </div>
+
+    <!-- GitHub repo social preview: 1280x640 -->
+    <div class="tile" id="tile-social" style="width:1280px;height:640px;
+      flex-direction:column;justify-content:center;gap:0;text-align:center">
+      <img src="../src/icons/icon128.png" alt="" style="width:160px;height:160px" />
+      <div style="font-size:68px;font-weight:800;letter-spacing:-1.5px;margin-top:22px">
+        Stepsmith
+      </div>
+      <p style="font-size:29px;opacity:.95;margin:14px 40px 0;max-width:900px">
+        Record the steps you take on a website and turn them into a guide with screenshots
+      </p>
+      <p style="font-size:21px;opacity:.8;margin-top:26px">
+        Manifest V3 · Guides stay on your device · Free version makes no network requests
+      </p>
+    </div>
+
+    <div class="tile" id="tile-marquee">
+      <img src="../src/icons/icon128.png" alt="" />
+      <div>
+        <div class="name">Stepsmith</div>
+        <p class="tag">
+          Click through a task once. Get a step-by-step guide with
+          screenshots, kept on your device.
+        </p>
+        <p class="sub">
+          Passwords never read · Export to HTML and Markdown · The free
+          version makes no network requests
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

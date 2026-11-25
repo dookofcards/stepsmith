@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stepsmith</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 id="ext-name">Stepsmith</h1>
+      <button id="btn-settings" class="icon-btn" title="Settings" aria-label="Settings">⚙</button>
+    </header>
+    <main>
+      <section id="idle" hidden>
+        <p class="hint">Open the page you want to document, then record. Each click becomes a step with a screenshot.</p>
+        <button id="btn-record" class="primary">Record this tab</button>
+        <p id="msg" class="msg" hidden></p>
+      </section>
+      <section id="recording" hidden>
+        <div class="rec"><span class="dot"></span> Recording — <span id="step-count">0</span> steps</div>
+        <button id="btn-stop" class="primary">Stop and open the guide</button>
+      </section>
+      <section>
+        <div class="list-head">
+          <strong>Recent guides</strong>
+          <a id="btn-open-app" href="#">Open all</a>
+        </div>
+        <ul id="recent" class="recent"></ul>
+        <p id="none" class="hint" hidden>No guides yet.</p>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+Stepsmith — name and branding notice
+
+The MIT License (see LICENSE) covers the source code in this repository.
+
+It does not grant rights to the "Stepsmith" name, the Stepsmith logo and
+icons, or the promotional artwork in docs/ and store-assets/.
+
+If you fork or redistribute this code, please publish it under a different
+name with different icons, so users can tell which project they are
+installing and reviews aren't attributed to the wrong software.
+
+
+Third-party code
+----------------
+
+ExtPay.js (https://github.com/Glench/ExtPay) is licensed under the AGPLv3,
+not the MIT License. It is used only for the optional Pro purchase flow.
+
+It is deliberately NOT bundled into Stepsmith's own code. The build copies
+it verbatim to extpay/ExtPay.js as a separate, unmodified file, so the two
+licences stay clearly separable. The service worker loads it with
+importScripts() but makes no request until a user actively starts a
+purchase, and it is omitted from the build entirely while payment is
+unconfigured.
+
+No other third-party code ships in the extension: the zip writer, the PDF
+writer and all image operations are part of this repository.

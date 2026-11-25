@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dookofcards.github.io/stepsmith/sitemap.xml
